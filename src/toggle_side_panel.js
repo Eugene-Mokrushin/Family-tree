@@ -5,8 +5,8 @@ const $pannel = $('.menu');
 $button.click(function () {
     $pannel.animate({
         width: 'toggle',
-    }, 400)
-    $button.toggleClass('active-toggler');
+        
+    }, 100)
     $arrow.text() == '❱' ? $arrow.text('❰') : $arrow.text('❱')
 })
 

@@ -1,4 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&family=Pacifico&display=swap');
+
 $menu_color : #32a0a8;
 $menu_subliminary_color : #e8e8e8;
+$background_darkened: #d1d1d1;
+$whitecolor: #ececec;
 $menu_toggler_height: 80px;
 $side_panel_width: 300px;
+$title_font: 'Pacifico', cursive;
+$common_font: 'Comfortaa', cursive;
+
+$font-weights: (
+    "bold": 700,
+    "regular": 400,
+    "light": 300
+);
+
+@function weight($weigh-name) {
+    @return map-get($map: $font-weights, $key: $weigh-name)
+}

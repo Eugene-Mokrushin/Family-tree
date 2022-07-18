@@ -8,45 +8,125 @@
 body {
 
     .container {
-        background-color: #ececec;
+        background-color: $whitecolor;
+        display: flex;
         position: relative;
 
-        #toggle-side-panel {
+        .new-picker {
+            z-index: 3;
             position: absolute;
-            line-height: $menu_toggler_height;
-            background-color: $menu_color;
-            height: $menu_toggler_height;
-            width: 55px;
-            border-radius: 50%;
-            color: $menu_subliminary_color;
-            display: inline-block;
-            font-size: 25px;
-            left: -30px;
-            transition: 0.3s; 
-            #arrow-direction {
-                margin-left: 35px;
-                user-select: none;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            border: 3px solid grey;
+            
+            background-color: $background_darkened;
+            height: 400px;
+            width: 200px;
+            #title{
+                margin-top: 30px;
+                width: 100%;
+                font-size: 25px;
+                text-align: center;
+                font-family: $title_font;
             }
         }
 
-        .menu {
-            background-color: $menu_color;
-            color: $menu_subliminary_color;
-            // position: absolute;
+        .menu-wrapper {
+            display: flex;
+            flex-direction: row-reverse;
+            max-width: $side_panel_width;
             height: 100%;
-            animation: 1s;
-            width: $side_panel_width;
-            overflow: hidden;
-            float: left;
+
+
+            #toggle-side-panel {
+                z-index: 1;
+                margin-left: -30px;
+                line-height: $menu_toggler_height;
+                background-color: $menu_color;
+                height: $menu_toggler_height;
+                width: 55px;
+                border-radius: 50%;
+                color: $menu_subliminary_color;
+                display: inline-block;
+                font-size: 25px;
+                left: 270px;
+
+                #arrow-direction {
+                    margin-left: 35px;
+                    user-select: none;
+                }
+            }
+
+            .menu {
+                user-select: none;
+                position: relative;
+                z-index: 1;
+                background-color: $menu_color;
+                color: $menu_subliminary_color;
+                height: 100%;
+                animation: 1s;
+                width: $side_panel_width;
+                overflow: hidden;
+                float: left;
+
+                &__name {
+                    margin-top: 50px;
+                    font-family: $title_font;
+                    font-size: 30px;
+                    text-align: center;
+                    font-weight: weight(regular);
+                }
+
+                &-list {
+                    margin-top: 80px;
+                    font-family: $common_font;
+                    width: 100%;
+                    list-style-type: none;
+                    text-align: left;
+
+                    &__option {
+                        position: relative;
+                        margin-left: 30px;
+                        font-size: 25px;
+                        font-weight: weight(bold);
+                        margin-bottom: 50px;
+
+                        a {
+                            color: $whitecolor;
+                            text-decoration: none;
+                            width: fit-content;
+                            position: relative;
+                        }
+
+                        a::before {
+                            content: '';
+                            position: absolute;
+                            display: block;
+                            width: 100%;
+                            height: 4px;
+                            bottom: 0;
+                            left: 0;
+                            background-color: $whitecolor;
+                            transform: scale(0);
+                            transition: transform 0.3s ease;
+                        }
+
+                        a:hover::before {
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
+
         }
-        .active-toggler {
-            left: 265px !important;
-        }
-        .block {
-            height: 200px;
-        }
-        canvas {
-            background-color: black;
+
+        .canvas-wrapper {
+            max-width: 100%;
+            margin-left: -20px;
+            #cv1 {
+                // background-color: bisque;
+            }
         }
 
     }

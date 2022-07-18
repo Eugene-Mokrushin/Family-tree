@@ -15,18 +15,32 @@
 
 <body>
     <div class="container">
-        <div id="toggle-side-panel" class="active-toggler"><span id="arrow-direction">❱</span></div>
-        <div class="menu">
-            <div class="block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores tempora voluptates
-                est? Dolor, harum officia similique exercitationem tenetur repudiandae ut deserunt, placeat quibusdam ea
-                blanditiis quo officiis qui! Asperiores, rerum.</div>
+        <div class="new-picker">
+            <span id="title">Who are you?</span>
+            <input type="radio">
         </div>
-        <canvas height="200" width="400">
-            <div>hello</div>
-        </canvas>
+        <div class="menu-wrapper">
+            <div id="toggle-side-panel" class="active-toggler">
+                <span id="arrow-direction">❱</span>
+            </div>
+            <div class="menu">
+                <div class="menu__name">
+                    Family Tree <br> Creator
+                </div>
+                <ul class="menu-list">
+                    <li class="menu-list__option"><a href="https://eugenemk.com/en/index.php">To Main Site</a></li>
+                    <li class="menu-list__option"><a href="">Add Editors</a></li>
+                    <li class="menu-list__option"><a href="">Print or Save</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="canvas-wrapper">
+            <canvas id="cv1"></canvas>
+        </div>
     </div>
     <script src="main.js"></script>
     <script src="toggle_side_panel.js"></script>
+    <script src="canvas_script.js"></script>
 </body>
 
 </html>
