@@ -22,3 +22,22 @@ window.onload = () => {
         marginTop: window.innerHeight / 2 - 80
     })
 }
+
+$('.new-picker').draggable({
+    cursor: 'pointer'
+})
+
+$('#genderVal').change = function(e){
+    console.log('asdasd')
+    console.log($('.test'))
+
+}
+
+$('#genderVal').on('change', function () {
+    if(this.checked)$('.save').attr('data-gender', 'male');
+    else $('.save').attr('data-gender', 'female');
+
+    $('.names-filed').toggleClass('male-input');
+    $('.save').toggleClass('male-button');
+});
+

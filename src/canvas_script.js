@@ -1,5 +1,7 @@
 const canvas = document.getElementById('cv1');
 const context = canvas.getContext('2d');
+const $canv = $('#cv1');
+const $pannelFP = $('.new-picker');
 let bubblePopUpAnimation;
 let bubblePopDownAnimation;
 
@@ -10,12 +12,25 @@ const maleColotLighter = '#6ea5ff';
 
 let familyData = [];
 
-canvas.onclick = () => {
+
+canvas.onclick = (e) => {
+    progressAnim($pannelFP);
     newPerson = new FamilyMember(context, canvas.width, canvas.height);
     newPerson.animatePopUp(0);
+
 }
 
-canvas
+progressAnim(e){
+    e.css({
+        transition: "transform 0.5s",
+        transform: "scale(" + amount + ")"
+    });
+
+    setTimeout(progressAnim () { e.css({ transition: "none" }) }, 500);
+}
+
+
+
 
 class FamilyMember {
     #ctx;
@@ -44,7 +59,7 @@ class FamilyMember {
             context.beginPath();
             context.fillStyle = maleColor;
             context.lineWidth = 8;
-            context.strokeStyle= maleColotLighter;
+            context.strokeStyle = maleColotLighter;
             context.arc(canvas.width / 2 - 300, canvas.height / 2, this.radius, 0, 6.283185307179586, false);
             context.stroke();
             context.fill();
@@ -69,7 +84,7 @@ class FamilyMember {
             context.beginPath();
             context.fillStyle = maleColor;
             context.lineWidth = 8;
-            context.strokeStyle= maleColotLighter;
+            context.strokeStyle = maleColotLighter;
             context.arc(canvas.width / 2 - 300, canvas.height / 2, this.radius, 0, 6.283185307179586, false);
             context.stroke();
             context.fill();
@@ -84,4 +99,3 @@ class FamilyMember {
     }
 }
 
-console.log('I am here')

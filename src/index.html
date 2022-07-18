@@ -17,8 +17,28 @@
     <div class="container">
         <div class="new-picker">
             <span id="title">Who are you?</span>
-            <input type="radio">
+
+            <div class="names">
+                <input type="text" required class="names-filed">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Name</label>
+            </div>
+            <div class="names">
+                <input type="text" required class="names-filed">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Surname</label>
+            </div>
+            <div class="gender">
+                <input type="checkbox" id="genderVal" class="test">
+                <label id="genderSwitch" for="genderVal">
+                    <span class="knob"><i></i></span>
+                </label>
+            </div>
+            <button class="save">Save!</button>
         </div>
+
         <div class="menu-wrapper">
             <div id="toggle-side-panel" class="active-toggler">
                 <span id="arrow-direction">❱</span>
