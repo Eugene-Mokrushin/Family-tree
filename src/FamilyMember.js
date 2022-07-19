@@ -1,4 +1,4 @@
-
+let catcher;
 class FamilyMember {
     #ctx;
     #coordX;
@@ -80,13 +80,12 @@ class FamilyMember {
             person.photo_link = '';
             person.description = {};
 
-            
-
-
+            catcher = person;
+            localStorage.setItem('checker', 1);
+            checker = 1;
             let person_serialized = JSON.stringify(person)
             familyData.push(person_serialized)
-            console.log(familyData)
-            populateStorage(familyData)
+            if (extractStorage() != person_serialized) populateStorage(familyData);
             this.drawText(this.#fname, this.#sname, this.#coordX, this.#coordY)
             return
         };

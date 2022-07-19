@@ -5,3 +5,5 @@ function populateStorage(param) {
 function extractStorage() {
     return localStorage.getItem('familyJar');
 }
+
+localStorage.setItem('checker', 0)

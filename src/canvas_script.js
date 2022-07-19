@@ -4,7 +4,7 @@ const $canv = $('#cv1');
 const $pannelFP = $('.new-picker');
 let bubblePopUpAnimation;
 let bubblePopDownAnimation;
-
+let checker = 0;
 const femaleColor = '#f55187';
 const femaleColorLighter = '#ff78a4';
 const maleColor = '#5190f5';
@@ -13,11 +13,6 @@ const maleColotLighter = '#6ea5ff';
 let familyData = [];
 
 
-canvas.onclick = (e) => {
-    if (familyData.length === 0) {
-        progressAnim($pannelFP, e)
-    }
-}
 $('.save').on('click', function (e) {
     let gender = $('.save').attr('data-gender');
     let fName = $('#first-name').val();
@@ -32,7 +27,7 @@ $('.save').on('click', function (e) {
 
 
 
-function progressAnim(elem, event, direct = 1) {
+function progressAnim(elem, event, direct = 1, additionalOfsetX = 0, additionalOfsetY = 0) {
     let scale = direct === 1 ? 0 : 1;
     let inter = setInterval(function () {
         direct === 1 ? scale += 0.05 : scale -= 0.05
@@ -43,8 +38,8 @@ function progressAnim(elem, event, direct = 1) {
 
     }, 10);
     elem.css({
-        'left': event.x,
-        'top': event.y
+        'left': event.x + additionalOfsetX,
+        'top': event.y + additionalOfsetY
     });
 
 }
@@ -58,9 +53,8 @@ function progressAnim(elem, event, direct = 1) {
 //         this.surName = surName
 // }
 
-canvas.onmousedown = (e) => {
-    x = e.offsetX;
-    y = e.offsetX;
-}
-
-
+// canvas.onclick = (e) => {
+//     x = e.offsetX;
+//     y = e.offsetY;
+//     console.log(x, y)
+// }

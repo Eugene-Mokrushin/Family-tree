@@ -12,7 +12,9 @@ window.onresize = () => {
     document.getElementById('cv1').height = window.innerHeight;
     let listOfNodes = extractStorage();
     if (listOfNodes.length != 0) {
-        
+        let objListOfNodes = JSON.parse(extractStorage())
+        newPerson_1 = new FamilyMember(context, objListOfNodes.x, objListOfNodes.y, objListOfNodes.gender, objListOfNodes.fname, objListOfNodes.sname);
+        newPerson_1.animatePopUp(0);
     }
 }
 
@@ -24,6 +26,14 @@ window.onload = () => {
     $('#toggle-side-panel').css({
         marginTop: window.innerHeight / 2 - 80
     })
+    let listOfNodes = extractStorage();
+    if (listOfNodes != null) {
+        let objListOfNodes = JSON.parse(extractStorage())
+        newPerson_1 = new FamilyMember(context, objListOfNodes.x, objListOfNodes.y, objListOfNodes.gender, objListOfNodes.fname, objListOfNodes.sname);
+        newPerson_1.animatePopUp(0);
+    } else {
+        
+    }
 }
 
 
