@@ -23,15 +23,6 @@ window.onload = () => {
     })
 }
 
-$('.new-picker').draggable({
-    cursor: 'pointer'
-})
-
-$('#genderVal').change = function(e){
-    console.log('asdasd')
-    console.log($('.test'))
-
-}
 
 $('#genderVal').on('change', function () {
     if(this.checked)$('.save').attr('data-gender', 'male');
@@ -41,3 +32,4 @@ $('#genderVal').on('change', function () {
     $('.save').toggleClass('male-button');
 });
 
+$('.addRelative').draggable()

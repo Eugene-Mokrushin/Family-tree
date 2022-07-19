@@ -1,7 +1,5 @@
 @import './_variables';
-@mixin genderColor($femaleColor : #f55187) {
-    
-}
+
 * {
     margin: 0;
     padding: 0;
@@ -27,6 +25,7 @@ body {
             background-color: $darkGreenColor;
             height: 400px;
             width: 300px;
+            user-select: none;
 
             #title {
                 margin-top: 30px;
@@ -36,12 +35,14 @@ body {
                 font-family: $title_font;
                 color: $whitecolor;
                 margin-bottom: 30px;
+                user-select: none;
             }
 
             .gender {
                 display: flex;
                 justify-content: center;
                 margin-top: -30px;
+                user-select: none;
 
                 input {
                     display: none;
@@ -130,6 +131,7 @@ body {
             .names {
                 position: relative;
                 margin-bottom: 45px;
+                user-select: none;
 
                 .names-filed {
                     color: white;
@@ -225,6 +227,7 @@ body {
                 font-weight: weight(bold);
                 font-size: 15px;
                 background-color: $femaleColor;
+                user-select: none;
                 outline: none;
                 &:hover {
                     background-color: $femaleColorLighter;
@@ -346,6 +349,55 @@ body {
 
             #cv1 {
                 // background-color: bisque;
+            }
+        }
+        .addRelative {
+            display: none;
+            border-radius: 10px;
+            z-index: 4;
+            position: absolute;
+            // display: flex;
+            justify-content: center;
+            height: 200px;
+            width: 200px;
+            border: 3px solid $menu_color;
+            background-color: $darkGreenColor;
+            padding: 5px;
+            color: $whitecolor;
+            .relatives{
+                width: 100%;
+                height: 100%;
+                .title-add {
+                    font-family: $title_font;
+                    font-size: 20px;
+                }
+                tr {
+                    // height: 50%;
+                   
+                    td {
+                        font-weight: weight(bold);
+                        user-select: none;
+                        text-align: center;
+                        font-family: $common_font;
+                        background-color: $menu_color;
+                        border: 1px solid $whitecolor;
+                        border-radius: 10px;
+                        height: 50%;
+                        width: 50%;
+                    }
+                    td[data-relative="mother"]:hover,
+                    td[data-relative="daughter"]:hover {
+                        transition: .5s;
+                        background-color: $femaleColorLighter;
+                        color: $femaleColor;
+                    }
+                    td[data-relative="father"]:hover,
+                    td[data-relative="son"]:hover {
+                        transition: .5s;
+                        background-color: $maleColotLighter;
+                        color: $whitecolor;
+                    }
+                }
             }
         }
 

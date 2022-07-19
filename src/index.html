@@ -19,13 +19,13 @@
             <span id="title">Who are you?</span>
 
             <div class="names">
-                <input type="text" required class="names-filed">
+                <input type="text" required class="names-filed" id="first-name">
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Name</label>
             </div>
             <div class="names">
-                <input type="text" required class="names-filed">
+                <input type="text" required class="names-filed" id="surname">
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Surname</label>
@@ -36,7 +36,21 @@
                     <span class="knob"><i></i></span>
                 </label>
             </div>
-            <button class="save">Save!</button>
+            <button class="save" data-gender="female">Save!</button>
+        </div>
+
+        <div class="addRelative">
+            <table class="relatives">
+                <th class="title-add" colspan="2">Add</th>
+                <tr>
+                    <td data-relative="mother">Mother</td>
+                    <td data-relative="father">Father</td>
+                </tr>
+                <tr>
+                    <td data-relative="son">Son</td>
+                    <td data-relative="daughter">Daughter</td>
+                </tr>
+            </table>
         </div>
 
         <div class="menu-wrapper">
@@ -61,6 +75,9 @@
     <script src="main.js"></script>
     <script src="toggle_side_panel.js"></script>
     <script src="canvas_script.js"></script>
+    <script src="localstorageSetter.js"></script>
+    <script src="FamilyMember.js"></script>
+    <script src="addFailyMember.js"></script>
 </body>
 
 </html>
