@@ -1,3 +1,4 @@
+
 class FamilyMember {
     #ctx;
     #coordX;
@@ -67,8 +68,24 @@ class FamilyMember {
             this.timer += deltaTime;
         }
         if (this.radius <= this.radiusToDown) {
-            let person = new Member(this.#coordX, this.#coordY, this.radiusToDown, this.#gender, this.#fname, this.#sname);
-            familyData.push(person);
+
+            const person = new Object();
+            person.row = ''
+            person.x = this.#coordX;
+            person.y = this.#coordY;
+            person.radius = this.radiusToDown;
+            person.gender = this.#gender;
+            person.fname = this.#fname;
+            person.sname = this.#sname;
+            person.photo_link = '';
+            person.description = {};
+
+            
+
+
+            let person_serialized = JSON.stringify(person)
+            familyData.push(person_serialized)
+            console.log(familyData)
             populateStorage(familyData)
             this.drawText(this.#fname, this.#sname, this.#coordX, this.#coordY)
             return

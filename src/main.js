@@ -10,7 +10,10 @@ window.onresize = () => {
     })
     document.getElementById('cv1').width = window.innerWidth;
     document.getElementById('cv1').height = window.innerHeight;
-
+    let listOfNodes = extractStorage();
+    if (listOfNodes.length != 0) {
+        
+    }
 }
 
 window.onload = () => {
@@ -33,3 +36,4 @@ $('#genderVal').on('change', function () {
 });
 
 $('.addRelative').draggable()
+$('.new-picker').draggable()

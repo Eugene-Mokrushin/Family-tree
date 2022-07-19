@@ -27,7 +27,6 @@ $('.save').on('click', function (e) {
         newPerson = new FamilyMember(context, canvas.width / 2 - 300, canvas.height / 2, gender, fName, sName);
         newPerson.animatePopUp(0);
         // newPerson.drawText()
-        extractStorage()
     }
 });
 
@@ -50,14 +49,14 @@ function progressAnim(elem, event, direct = 1) {
 
 }
 
-Member = function (x, y, gender, radius = 50, firstName, surName) {
-    this.x = x,
-        this.y = y,
-        this.gender = gender,
-        this.radius = radius,
-        this.firstName = firstName,
-        this.surName = surName
-}
+// const Member = (x, y, gender, radius = 50, firstName, surName) => {
+//     this.x = x,
+//         this.y = y,
+//         this.gender = gender,
+//         this.radius = radius,
+//         this.firstName = firstName,
+//         this.surName = surName
+// }
 
 canvas.onmousedown = (e) => {
     x = e.offsetX;

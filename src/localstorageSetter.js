@@ -3,5 +3,5 @@ function populateStorage(param) {
 }
 
 function extractStorage() {
-    return localStorage.getItem('familyJar')
+    return localStorage.getItem('familyJar');
 }
