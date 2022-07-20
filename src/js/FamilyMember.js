@@ -17,13 +17,9 @@ class FamilyMember {
         this.lastTime = 0;
         this.interval = 10;
         this.timer = 0;
-        this.cellSize = 15;
-        this.gradient;
-        this.#ctx.strokeStyle = this.gradient;
         this.radius = 10;
         this.radiusToDown = 50;
         this.radiusMax = 70;
-        this.vr = 0.03;
     }
     animatePopUp(timeStamp) {
         const deltaTime = timeStamp - this.lastTime;

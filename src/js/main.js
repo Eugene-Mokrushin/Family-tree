@@ -47,3 +47,10 @@ $('#genderVal').on('change', function () {
 
 $('.addRelative').draggable()
 $('.new-picker').draggable()
+
+
+$('#clear-storage').click(function (e) { 
+    e.preventDefault();
+    localStorage.clear();
+    location.reload();
+});

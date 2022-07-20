@@ -339,6 +339,25 @@ body {
                         }
                     }
                 }
+
+                #clear-storage {
+                    margin-left: 55px;
+                    width: 150px;
+                    height: 50px;
+                    color: $menu_color;
+                    font-family: $common_font;
+                    font-size: 15px;
+                }
+
+                .version {
+                    font-weight: weight(bold);
+                    text-align: center;
+                    font-family: $common_font;
+                    color: $whitecolor;
+                    font-size: 19px;
+                    position: sticky;
+                    top: 95%;
+                }
             }
 
         }

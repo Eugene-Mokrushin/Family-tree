@@ -1,5 +1,6 @@
 const canvas = document.getElementById('cv1');
-const context = canvas.getContext('2d');
+const infCanvas = new InfiniteCanvas(canvas);
+const context = infCanvas.getContext('2d');
 const $canv = $('#cv1');
 const $pannelFP = $('.new-picker');
 let bubblePopUpAnimation;
@@ -53,8 +54,7 @@ function progressAnim(elem, event, direct = 1, additionalOfsetX = 0, additionalO
 //         this.surName = surName
 // }
 
-// canvas.onclick = (e) => {
-//     x = e.offsetX;
-//     y = e.offsetY;
-//     console.log(x, y)
-// }
+$('#cv1').click(function (e) { 
+    e.preventDefault();
+    console.log('X: ' + e.offsetX, 'Y '+ e.offsetY)
+});

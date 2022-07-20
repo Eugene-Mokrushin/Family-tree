@@ -29,7 +29,7 @@ canvas.onclick = (e) => {
 
     }
     if (checker === 0 && parseInt(localStorage.getItem('checker')) === 0) {
-        progressAnim($pannelFP, e)
+        progressAnim($pannelFP, e, 1, -150, -150)
     }
 }
 
