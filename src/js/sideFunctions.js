@@ -32,6 +32,7 @@ function peopleInLayerCalc(layerToFind) {
 function checkLocalStorageForListOfPeople() {
     if (localStorage.getItem('listPerson')) {
         listPeople = localStorage.getItem('listPerson')
+
         listPeople = listPeople
             .replace(reBrackets, '')
             .split(',');
@@ -41,30 +42,34 @@ function checkLocalStorageForListOfPeople() {
 
 
 //animation opene - close element
-function newPickerToggle(element, event, growDirection = 1, additionalOfsetX = 0, additionalOfsetY = 0, changeCSS = true) {
+function newPickerToggle(element, event, growDirection = 1, additionalOfsetX = 0, additionalOfsetY = 0, changeCSS = true, changeOffset = true) {
     let scalePicker = growDirection === 1 ? 0 : 1;
+    const offSX = (changeOffset) ? event.offsetX : 0;
+    const offSY = (changeOffset) ? event.offsetY : 0;
+    console.log(offSX)
     if (element.attr('data-active') != 'active') {
         if (changeCSS) {
             element.css({
-                left: event.offsetX + additionalOfsetX - primeCoordinate,
-                top: event.offsetY + additionalOfsetY - primeCoordinate
+                left: offSX + additionalOfsetX - primeCoordinate,
+                top: offSY + additionalOfsetY - primeCoordinate
             })
         }
         const intervalPicker = setInterval(() => {
             growDirection === 1 ? scalePicker += 0.05 : scalePicker -= 0.05
             if (scalePicker > 1 || scalePicker < 0) { clearInterval(intervalPicker) }
-            $newPicker.css({
+            element.css({
                 'transform': `scale(${scalePicker})`
             });
         }, 10)
         element.attr('data-active', 'active');
+        console.log('I am here')
     }
 }
 
 
 //first time click 
 function firstTime() {
-    return listPeople.length === 1;
+    return listPeople[0] == '';
 }
 
 
@@ -106,3 +111,14 @@ function disableScroll() {
             window.scrollTo(scrollLeft, scrollTop);
         };
 }
+
+
+
+function chooseToAddNewRelative(e) {
+    const jqElemTarget = $(`#${e.currentTarget.id}`)
+    console.log(jqElemTarget.position())
+    const elemTargetX = +jqElemTarget.css('left').slice(0, -2);
+    const elemTargetY = +jqElemTarget.css('top').slice(0, -2);
+    newPickerToggle($addRelative, e, 1, jqElemTarget.position().left + 250 + primeCoordinate, jqElemTarget.position().top + primeCoordinate, true, false)
+}
+

@@ -1,5 +1,6 @@
 'use strcit';
 
+const $mainCanvas = $('.tree-box-wrapper')
 const $newPicker = $('.new-picker');
 const $buttonMenuToggle = $('#toggle-side-panel');
 const $arrowMenu = $('#arrow-direction');
@@ -8,12 +9,10 @@ const $treeWrapper = $('.tree-box-wrapper');
 const $nameTyped = $('#first-name');
 const $surnameTyped = $('#surname');
 const $saveFirstTime = $('.save');
-let $person;
+const $addRelative = $('.addRelative');
 const primeCoordinate = 18000;
 const reBrackets = /\[|\]/gm;
 const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
 let peopleInLayer = [];
 let listPeople = new Array();
-
-

@@ -29,17 +29,26 @@ $('#genderVal').on('change', function () {
 //main tree event trigger
 $('.tree-box-wrapper').click(function (e) {
     if (firstTime()) newPickerToggle($newPicker, e, 1, -150, -150);
+    
 })
 
 //first person create
 $saveFirstTime.click(function (e) {
-    firstPersonCreate($newPicker, e)    
+    firstPersonCreate($newPicker, e)
 })
 
 
-$('body').on('click', '.person', function (e) {
-    console.log(e)
+$('.tree-box-wrapper').on('mousedown', '.person', function (e) {
+    if (e.which === 1 || e.button === 0)
+    {
+        console.log('Left mouse button at ' + e.clientX + 'x' + e.clientY);
+    }
+    if (e.which === 3 || e.button === 2) {
+        chooseToAddNewRelative(e);
+    }
 })
+
+
 
 
 

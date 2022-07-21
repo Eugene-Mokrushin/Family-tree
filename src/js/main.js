@@ -30,7 +30,8 @@ window.onload = () => {
     disableScroll()
 }
 
-$('.addRelative').draggable()
+window.addEventListener("contextmenu", e => e.preventDefault());
+
 $('.new-picker').draggable()
 $('.tree-box-wrapper').draggable()
 
