@@ -1,6 +1,7 @@
 'use strcit';
 
-const $mainCanvas = $('.tree-box-wrapper')
+const $mainCanvas = $('.tree-box-wrapper');
+const $personDetails = $('.selectPerson');
 const $newPicker = $('.new-picker');
 const $buttonMenuToggle = $('#toggle-side-panel');
 const $arrowMenu = $('#arrow-direction');

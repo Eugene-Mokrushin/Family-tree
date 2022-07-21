@@ -113,12 +113,24 @@ function disableScroll() {
 }
 
 
-
+//opens table of maybe new nodes
 function chooseToAddNewRelative(e) {
+    $personDetails.css('transform', 'scale(0)');
+    $personDetails.attr('data-active', 'not-active');
+
     const jqElemTarget = $(`#${e.currentTarget.id}`)
-    console.log(jqElemTarget.position())
     const elemTargetX = +jqElemTarget.css('left').slice(0, -2);
     const elemTargetY = +jqElemTarget.css('top').slice(0, -2);
-    newPickerToggle($addRelative, e, 1, jqElemTarget.position().left + 250 + primeCoordinate, jqElemTarget.position().top + primeCoordinate, true, false)
+    newPickerToggle($addRelative, e, 1, jqElemTarget.position().left + 250 + primeCoordinate, jqElemTarget.position().top + primeCoordinate, true, false);
 }
 
+//opens selected person details
+function seePersonDetails(e) {
+    $addRelative.css('transform', 'scale(0)');
+    $addRelative.attr('data-active', 'not-active');
+
+    const jqElemTarget = $(`#${e.currentTarget.id}`);
+    const elemTargetX = +jqElemTarget.css('left').slice(0, -2);
+    const elemTargetY = +jqElemTarget.css('top').slice(0, -2);
+    newPickerToggle($personDetails, e, 1, jqElemTarget.position().left + 250 + primeCoordinate, jqElemTarget.position().top + primeCoordinate - 170, true, false);
+}

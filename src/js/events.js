@@ -38,10 +38,10 @@ $saveFirstTime.click(function (e) {
 })
 
 
-$('.tree-box-wrapper').on('mousedown', '.person', function (e) {
+$('.tree-box-wrapper').on('mouseup', '.person', function (e) {
     if (e.which === 1 || e.button === 0)
     {
-        console.log('Left mouse button at ' + e.clientX + 'x' + e.clientY);
+        seePersonDetails(e);
     }
     if (e.which === 3 || e.button === 2) {
         chooseToAddNewRelative(e);
