@@ -5,10 +5,16 @@
     padding: 0;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 
 body {
-    overflow: hidden;
     position: relative;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
     .container {
         background-color: $whitecolor;
         display: flex;
@@ -231,36 +237,42 @@ body {
                 background-color: $femaleColor;
                 user-select: none;
                 outline: none;
+
                 &:hover {
                     background-color: $femaleColorLighter;
                     color: $femaleColor;
                 }
+
                 &:active {
                     background-color: $femaleColorLighter;
-                    color: $femaleColor;    
-                }
-            }
-            .male-button {
-                background-color: $maleColor !important;
-                color: white !important;
-                &:hover {
-                    background-color: $maleColotLighter !important;
-                    color: $maleColor !important;
-                }
-                &:active {
-                    background-color: $maleColotLighter !important;
-                    color: $maleColor !important;    
+                    color: $femaleColor;
                 }
             }
 
-            
+            .male-button {
+                background-color: $maleColor  !important;
+                color: white !important;
+
+                &:hover {
+                    background-color: $maleColotLighter  !important;
+                    color: $maleColor  !important;
+                }
+
+                &:active {
+                    background-color: $maleColotLighter  !important;
+                    color: $maleColor  !important;
+                }
+            }
+
+
         }
 
         .menu-wrapper {
             display: flex;
             flex-direction: row-reverse;
             max-width: $side_panel_width;
-            height: 100%;
+            position: sticky;
+            height: 103%;
 
 
             #toggle-side-panel {
@@ -283,8 +295,9 @@ body {
             }
 
             .menu {
+                position: sticky;
                 user-select: none;
-                position: relative;
+                // position: relative;
                 z-index: 1;
                 background-color: $menu_color;
                 color: $menu_subliminary_color;
@@ -378,16 +391,19 @@ body {
             background-color: $darkGreenColor;
             padding: 5px;
             color: $whitecolor;
-            .relatives{
+
+            .relatives {
                 width: 100%;
                 height: 100%;
+
                 .title-add {
                     font-family: $title_font;
                     font-size: 20px;
                 }
+
                 tr {
 
-                   
+
                     td {
                         font-weight: weight(bold);
                         user-select: none;
@@ -399,12 +415,14 @@ body {
                         height: 50%;
                         width: 50%;
                     }
+
                     td[data-relative="mother"]:hover,
                     td[data-relative="daughter"]:hover {
                         transition: .5s;
                         background-color: $femaleColorLighter;
                         color: $femaleColor;
                     }
+
                     td[data-relative="father"]:hover,
                     td[data-relative="son"]:hover {
                         transition: .5s;
@@ -417,16 +435,64 @@ body {
 
 
     }
-    
-    .tree-box-wrapper{
+
+    .tree-box-wrapper {
+        overflow: hidden;
         position: absolute;
         height: 36000px;
         width: 36000px;
         background-color: $whitecolor;
-        span {
-            position: absolute;
-            top: 18000;
-            left: 18000;
+
+        .person {
+            position: inherit;
+            height: 260px;
+            width: 210px;
+            z-index: 3;
+
+            &__image {
+                height: 200px;
+                width: 200px;
+                // object-fit: cover;
+                border-radius: 50%;
+            }
+
+            &-initials {
+                padding-top: 20px;
+                display: flex;
+                justify-content: center;
+
+                &__name {
+                    color: $darkGreenColor;
+                    font-size: 20px;
+                    font-family: $common_font;
+                    margin-right: 5px;
+                }
+
+                &__surName {
+                    color: $darkGreenColor;
+                    font-family: $common_font;
+                    font-size: 20px;
+                    margin-left: 5px;
+                }
+            }
+
         }
+
+        .person[data-gender="female"] {
+            .person__image {
+                background-color: $femaleColorLighter;
+                border: 5px solid $femaleColor;
+            }
+        }
+
+        .person[data-gender="male"] {
+            .person__image {
+                background-color: $maleColotLighter;
+                border: 5px solid $maleColor;
+            }
+        }
+
     }
 }
+
+// height: 100%; width: 100%; object-fit: contain'

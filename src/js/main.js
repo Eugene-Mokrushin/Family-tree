@@ -24,7 +24,10 @@ window.onload = () => {
         left: '-18000px',
         top: '-18000px'
     })
-    checkLocalStorageForListOfPeople()
+    checkLocalStorageForListOfPeople();
+    if (listPeople.length != 0) recreateLocalStorage();
+    
+    disableScroll()
 }
 
 $('.addRelative').draggable()
