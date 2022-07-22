@@ -471,15 +471,14 @@ body {
                 .names-n-years {
                     margin-top: 10px;
                     display: flex;
+                    font-size: 20px;
                     justify-content: space-around;
 
                     &__names {
-                        font-size: 20px;
                         font-weight: weight(bold);
                     }
 
                     &__yearsOfLiving {
-                        font-size: 20px;
                         font-family: $title_font;
                     }
                 }
@@ -487,7 +486,7 @@ body {
                 &__description {
                     padding-left: 10px;
                     margin-top: 10px;
-                    height: 340px;
+                    height: 330px;
                     overflow-y: auto;
                     font-size: 18px;
                     cursor: ns-resize;
@@ -518,10 +517,10 @@ body {
                 display: flex;
                 justify-content: center;
                 user-select: none;
+                font-size: 20px;
 
                 &__name {
                     color: $darkGreenColor;
-                    font-size: 20px;
                     font-family: $common_font;
                     margin-right: 5px;
                 }
@@ -529,7 +528,6 @@ body {
                 &__surName {
                     color: $darkGreenColor;
                     font-family: $common_font;
-                    font-size: 20px;
                     margin-left: 5px;
                 }
             }

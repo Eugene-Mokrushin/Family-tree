@@ -27,9 +27,9 @@ $('#genderVal').on('change', function () {
 
 
 //main tree event trigger
-$('.tree-box-wrapper').click(function (e) {
+$mainCanvas.click(function (e) {
     if (firstTime()) newPickerToggle($newPicker, e, 1, -150, -150);
-    
+
 })
 
 //first person create
@@ -38,17 +38,40 @@ $saveFirstTime.click(function (e) {
 })
 
 
-$('.tree-box-wrapper').on('mouseup', '.person', function (e) {
-    if (e.which === 1 || e.button === 0)
-    {
-        seePersonDetails(e);
+
+
+$mainCanvas.on('click', function (e) {
+    let check;
+    $mainCanvas.on('mousedown', '.person', function (e) {
+        if (e.which === 1) {
+            check = 1
+            seePersonDetails(e);
+        }
+        if (e.which === 3) {
+            console.log('I am here')
+            chooseToAddNewRelative(e);
+            check = 2
+        }
+    });
+    if (check != 1 || check != 2) {
+        $addRelative.css('transform', 'scale(0)');
+        $addRelative.attr('data-active', 'not-active');
+        $personDetails.css('transform', 'scale(0)');
+        $personDetails.attr('data-active', 'not-active');
     }
-    if (e.which === 3 || e.button === 2) {
-        chooseToAddNewRelative(e);
+
+});
+
+$mainCanvas.on('wheel', function (e) {
+    (e).preventDefault;
+    let classTarget = e.target.classList[0]
+    if ($(`.${classTarget}`).parents('.selectPerson').length == 0) {
+        zoom(e)
     }
+    if ($(`.${classTarget}`).parents('.addRelative').length == 0) {
+        zoom(e)
+    }
+
 })
-
-
-
 
 

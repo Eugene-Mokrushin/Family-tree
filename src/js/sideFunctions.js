@@ -46,7 +46,7 @@ function newPickerToggle(element, event, growDirection = 1, additionalOfsetX = 0
     let scalePicker = growDirection === 1 ? 0 : 1;
     const offSX = (changeOffset) ? event.offsetX : 0;
     const offSY = (changeOffset) ? event.offsetY : 0;
-    console.log(offSX)
+
     if (element.attr('data-active') != 'active') {
         if (changeCSS) {
             element.css({
@@ -62,7 +62,6 @@ function newPickerToggle(element, event, growDirection = 1, additionalOfsetX = 0
             });
         }, 10)
         element.attr('data-active', 'active');
-        console.log('I am here')
     }
 }
 
@@ -127,10 +126,36 @@ function chooseToAddNewRelative(e) {
 //opens selected person details
 function seePersonDetails(e) {
     $addRelative.css('transform', 'scale(0)');
-    $addRelative.attr('data-active', 'not-active');
+    $addRelative.attr('data-active', 'active');
 
     const jqElemTarget = $(`#${e.currentTarget.id}`);
     const elemTargetX = +jqElemTarget.css('left').slice(0, -2);
     const elemTargetY = +jqElemTarget.css('top').slice(0, -2);
     newPickerToggle($personDetails, e, 1, jqElemTarget.position().left + 250 + primeCoordinate, jqElemTarget.position().top + primeCoordinate - 170, true, false);
+}
+
+function zoom(e) {
+    let scrollDirection = e.originalEvent.deltaY
+    let imageHeightWidth = +$('.person__image').css('height').slice(0, -2);
+    let fontSizeNames = +$('.person-initials').css('fontSize').slice(0, -2);
+    let personBlockHeight = +$('.person').css('height').slice(0, -2);
+    let personBlockWidth = +$('.person').css('width').slice(0, -2);
+
+    $('.person__image').css({
+        'height': imageHeightWidth - 10 * (scrollDirection / 100),
+        'width': imageHeightWidth - 10 * (scrollDirection / 100)
+    })
+    $('.person-initials').css({
+        'fontSize': fontSizeNames - 1 * (scrollDirection / 100),
+        'paddingTop': fontSizeNames - 1 * (scrollDirection / 100)
+    })
+    $('.person').css({
+        'height': personBlockHeight - 13 * (scrollDirection / 100),
+        'width': personBlockWidth - 10 * (scrollDirection / 100)
+    })
+
+    $addRelative.css('transform', 'scale(0)');
+    $addRelative.attr('data-active', 'not-active');
+    $personDetails.css('transform', 'scale(0)');
+    $personDetails.attr('data-active', 'not-active');
 }
