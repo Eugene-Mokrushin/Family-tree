@@ -140,6 +140,14 @@ function zoom(e) {
     let fontSizeNames = +$('.person-initials').css('fontSize').slice(0, -2);
     let personBlockHeight = +$('.person').css('height').slice(0, -2);
     let personBlockWidth = +$('.person').css('width').slice(0, -2);
+    let selectPersonWidth = +$('.selectPerson').css('width').slice(0, -2);
+    let selectPersonHeight = +$('.selectPerson').css('height').slice(0, -2);
+    let selectPersonTextHeight = +$('.relative__description').css('height').slice(0, -2);
+    let selectPersonImgHeight = +$('.selectPerson__photo').css('height').slice(0, -2);
+    let selectPersonMarginLeft = +$('.selectPerson').css('left').slice(0, -2);
+    let selectPersonMarginTop = +$('.selectPerson').css('top').slice(0, -2);
+
+    console.log('Height: ' + selectPersonHeight + " Width: " + selectPersonWidth)
 
     $('.person__image').css({
         'height': imageHeightWidth - 10 * (scrollDirection / 100),
@@ -154,8 +162,31 @@ function zoom(e) {
         'width': personBlockWidth - 10 * (scrollDirection / 100)
     })
 
-    $addRelative.css('transform', 'scale(0)');
-    $addRelative.attr('data-active', 'not-active');
-    $personDetails.css('transform', 'scale(0)');
-    $personDetails.attr('data-active', 'not-active');
+    if (selectPersonHeight > 300) {
+        $('.selectPerson').css({
+            'height': selectPersonHeight - 30 * (scrollDirection / 100),
+            'width': selectPersonWidth - 20 * (scrollDirection / 100),
+            'left': selectPersonMarginLeft - 12.5 * (scrollDirection / 100),
+            'top': selectPersonMarginTop + 10 * (scrollDirection / 100)
+        })
+    } else {
+        $personDetails.css('transform', 'scale(0)');
+        $personDetails.attr('data-active', 'not-active');
+    }
+    $('.relative__description').css({
+        'height': selectPersonTextHeight - 16.5 * (scrollDirection / 100)
+    })
+
+    $('.selectPerson__photo').css({
+        'height': selectPersonImgHeight - 10 * (scrollDirection / 100)
+    })
+
+    // $addRelative.css('transform', 'scale(0)');
+    // $addRelative.attr('data-active', 'not-active');
+    // $personDetails.css('transform', 'scale(0)');
+    // $personDetails.attr('data-active', 'not-active');
+}
+
+function createNewPerson(params) {
+    
 }

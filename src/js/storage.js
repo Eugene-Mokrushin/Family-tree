@@ -17,3 +17,13 @@ const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
 let peopleInLayer = [];
 let listPeople = new Array();
+
+
+const initialCssRelativeDetails = {
+    selectPersonWidth : +$('.selectPerson').css('width').slice(0, -2),
+    selectPersonHeight : +$('.selectPerson').css('height').slice(0, -2),
+    selectPersonTextHeight : +$('.relative__description').css('height').slice(0, -2),
+    selectPersonImgHeight : +$('.selectPerson__photo').css('height').slice(0, -2),
+    selectPersonMarginLeft : +$('.selectPerson').css('left').slice(0, -2),
+    selectPersonMarginTop : +$('.selectPerson').css('top').slice(0, -2),
+}

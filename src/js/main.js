@@ -27,7 +27,6 @@ window.onload = () => {
     checkLocalStorageForListOfPeople();
     if (listPeople.length != 0) recreateLocalStorage();
     
-    document.querySelector('.tree-box-wrapper').click()
     disableScroll()
 }
 

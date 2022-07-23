@@ -28,7 +28,7 @@ $('#genderVal').on('change', function () {
 
 //main tree event trigger
 $mainCanvas.click(function (e) {
-    if (firstTime()) newPickerToggle($newPicker, e, 1, -150, -150);
+    
 
 })
 
@@ -42,13 +42,13 @@ $saveFirstTime.click(function (e) {
 
 $mainCanvas.on('click', function (e) {
     let check;
+    if (firstTime()) newPickerToggle($newPicker, e, 1, -150, -150);
     $mainCanvas.on('mousedown', '.person', function (e) {
         if (e.which === 1) {
             check = 1
             seePersonDetails(e);
         }
         if (e.which === 3) {
-            console.log('I am here')
             chooseToAddNewRelative(e);
             check = 2
         }
@@ -63,15 +63,18 @@ $mainCanvas.on('click', function (e) {
 });
 
 $mainCanvas.on('wheel', function (e) {
-    (e).preventDefault;
     let classTarget = e.target.classList[0]
-    if ($(`.${classTarget}`).parents('.selectPerson').length == 0) {
-        zoom(e)
-    }
-    if ($(`.${classTarget}`).parents('.addRelative').length == 0) {
-        zoom(e)
-    }
+    let parentsClassTarget_1 = $(`.${classTarget}`).parents('.selectPerson').length;
+    let parentsClassTarget_2 = $(`.${classTarget}`).parents('.addRelative').length;
 
+    if (parentsClassTarget_1 === 0 && parentsClassTarget_2 === 0) {
+        zoom(e)
+    }
+})
+
+$('td').on('click', function (e) {
+    createNewPerson()
+    console.log(e.target.dataset.relative)
 })
 
 
