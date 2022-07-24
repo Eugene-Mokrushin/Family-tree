@@ -25,7 +25,7 @@ class NewFamilyMember {
         return xPosition;
     }
     #calculatePositionTop() {
-        const yPosition = primeCoordinate + screenHeight / 2;
+        const yPosition = primeCoordinate + screenHeight / 2 + (this.layer * 200);
         return yPosition;
     }
 

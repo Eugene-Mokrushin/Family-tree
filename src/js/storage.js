@@ -11,6 +11,7 @@ const $nameTyped = $('#first-name');
 const $surnameTyped = $('#surname');
 const $saveFirstTime = $('.save');
 const $addRelative = $('.addRelative');
+let idElementClicked;
 const primeCoordinate = 18000;
 const reBrackets = /\[|\]/gm;
 const screenWidth = window.innerWidth;

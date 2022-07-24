@@ -5,14 +5,19 @@ function updateLocalStorage(newData) {
     const data = newData
     const numberOfPeople = localStorage.getItem('listPerson')
         .replace(reBrackets, '')
-        .split(',')
-        .length + 1;
-    localStorage.setItem(numberOfPeople - 1, JSON.stringify(data))
-    listPeople = []
-    for (let i = 1; i < numberOfPeople; i++) {
-        listPeople.push(i)
-    }
-    localStorage.setItem('listPerson', JSON.stringify(listPeople))
+        .split(',');
+
+    listPeople = [];
+    console.log(localStorage.getItem('listPerson')
+        .replace(reBrackets, '')
+        .split(','))
+    console.log(numberOfPeople)
+    // for (let i = 1; i <= numberOfPeople + 1; i++) {
+    //     listPeople.push(i)
+    // }
+
+    localStorage.setItem(numberOfPeople[-1], JSON.stringify(data))
+    localStorage.setItem('listPerson', JSON.stringify(numberOfPeople))
 }
 
 
@@ -32,7 +37,6 @@ function peopleInLayerCalc(layerToFind) {
 function checkLocalStorageForListOfPeople() {
     if (localStorage.getItem('listPerson')) {
         listPeople = localStorage.getItem('listPerson')
-
         listPeople = listPeople
             .replace(reBrackets, '')
             .split(',');
@@ -143,7 +147,6 @@ function zoom(e) {
     let selectPersonMarginLeft = +$('.selectPerson').css('left').slice(0, -2);
     let selectPersonMarginTop = +$('.selectPerson').css('top').slice(0, -2);
 
-    console.log('Height: ' + selectPersonHeight + " Width: " + selectPersonWidth)
 
     $('.person__image').css({
         'height': imageHeightWidth - 10 * (scrollDirection / 100),
@@ -184,7 +187,29 @@ function zoom(e) {
 }
 
 function createNewPerson(e) {
-    const whomeToAddId = e.target.dataset.relative;
     const whomeToAddData = e.target.dataset.relative;
-    console.log(whomeToAddId)
+
+    let i
+    listPeople.forEach(element => {
+        const nodePersonData = JSON.parse(localStorage.getItem(parseInt(element)))
+        if (nodePersonData.upid === idElementClicked) {
+
+            const newPerson = new NewFamilyMember(
+                whomeToAddData + 'of' + nodePersonData.firstName,
+                '',
+                whomeToAddData === 'mother' || whomeToAddData === 'daugther' ? 'female' : 'male',
+                nodePersonData.layer + whomeToAddData === 'son' || whomeToAddData === 'daugther' ? -1 : 1,
+                '',
+                ''
+            )
+            newPerson.addPerson()
+            updateLocalStorage(newPerson.generatObjSave());
+
+            return
+        }
+    });
+
+
+
+    return
 }
