@@ -26,11 +26,7 @@ $('#genderVal').on('change', function () {
 });
 
 
-//main tree event trigger
-$mainCanvas.click(function (e) {
-    
 
-})
 
 //first person create
 $saveFirstTime.click(function (e) {
@@ -41,24 +37,40 @@ $saveFirstTime.click(function (e) {
 
 
 $mainCanvas.on('click', function (e) {
-    let check;
+    let classTarget = e.target.classList[0];
+    let classTargetParentCheck = $(`.${classTarget}`).parents('.person').length
+
+    let descriptionScale = $personDetails.attr('data-active')
+
+    console.log(classTarget)
+
+
     if (firstTime()) newPickerToggle($newPicker, e, 1, -150, -150);
     $mainCanvas.on('mousedown', '.person', function (e) {
         if (e.which === 1) {
-            check = 1
             seePersonDetails(e);
+            $addRelative.css('transform', 'scale(0)');
+            $addRelative.attr('data-active', 'not-active');
         }
         if (e.which === 3) {
             chooseToAddNewRelative(e);
-            check = 2
+            $personDetails.css('transform', 'scale(0)');
+            $personDetails.attr('data-active', 'not-active');
         }
+
     });
-    if (check != 1 || check != 2) {
-        $addRelative.css('transform', 'scale(0)');
+
+    $('td').on('click', function (e) {
+        createNewPerson(e);
+    })
+
+
+    if (classTargetParentCheck === 0) {
         $addRelative.attr('data-active', 'not-active');
-        $personDetails.css('transform', 'scale(0)');
         $personDetails.attr('data-active', 'not-active');
     }
+
+
 
 });
 
@@ -72,9 +84,6 @@ $mainCanvas.on('wheel', function (e) {
     }
 })
 
-$('td').on('click', function (e) {
-    createNewPerson()
-    console.log(e.target.dataset.relative)
-})
+
 
 

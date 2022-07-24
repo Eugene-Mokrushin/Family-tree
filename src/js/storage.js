@@ -15,6 +15,7 @@ const primeCoordinate = 18000;
 const reBrackets = /\[|\]/gm;
 const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
+let currentPersonPicked;
 let peopleInLayer = [];
 let listPeople = new Array();
 

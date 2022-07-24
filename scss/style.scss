@@ -444,6 +444,10 @@ body {
             }
         }
 
+        .addRelative[data-active="not-active"]{
+            display: none !important;
+        }
+
         .selectPerson {
             transform: scale(0);
             position: inherit;
@@ -496,6 +500,10 @@ body {
                     width: 10px;
                 }
             }
+        }
+
+        .selectPerson[data-active="not-active"]{
+            display: none !important;
         }
 
         .person {

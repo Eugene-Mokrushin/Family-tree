@@ -118,19 +118,15 @@ function chooseToAddNewRelative(e) {
     $personDetails.attr('data-active', 'not-active');
 
     const jqElemTarget = $(`#${e.currentTarget.id}`)
-    const elemTargetX = +jqElemTarget.css('left').slice(0, -2);
-    const elemTargetY = +jqElemTarget.css('top').slice(0, -2);
     newPickerToggle($addRelative, e, 1, jqElemTarget.position().left + 250 + primeCoordinate, jqElemTarget.position().top + primeCoordinate, true, false);
 }
 
 //opens selected person details
 function seePersonDetails(e) {
     $addRelative.css('transform', 'scale(0)');
-    $addRelative.attr('data-active', 'active');
+    $addRelative.attr('data-active', 'not-active');
 
     const jqElemTarget = $(`#${e.currentTarget.id}`);
-    const elemTargetX = +jqElemTarget.css('left').slice(0, -2);
-    const elemTargetY = +jqElemTarget.css('top').slice(0, -2);
     newPickerToggle($personDetails, e, 1, jqElemTarget.position().left + 250 + primeCoordinate, jqElemTarget.position().top + primeCoordinate - 170, true, false);
 }
 
@@ -187,6 +183,8 @@ function zoom(e) {
     // $personDetails.attr('data-active', 'not-active');
 }
 
-function createNewPerson(params) {
-    
+function createNewPerson(e) {
+    const whomeToAddId = e.target.dataset.relative;
+    const whomeToAddData = e.target.dataset.relative;
+    console.log(whomeToAddId)
 }
